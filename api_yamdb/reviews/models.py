@@ -32,7 +32,7 @@ class User(AbstractUser):
     role = models.CharField(
         choices=ROLES_CHOICES,
         default=settings.ROLE_USER,
-        max_length=max(len(role) for role,_ in ROLES_CHOICES)
+        max_length=max(len(role) for role, _ in ROLES_CHOICES)
     )
     bio = models.TextField(blank=True, null=True)
     confirmation_code = models.CharField(
