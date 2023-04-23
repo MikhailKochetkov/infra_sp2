@@ -14,8 +14,8 @@ services:
       dockerfile: api_yamdb/Dockerfile
     restart: always
     volumes:
-      - static_value:/app/static/
-      - media_value:/app/media/
+      - api_yamdb_value:/app/static/
+      - api_yamdb_media:/app/media/
     depends_on:
       - db
     env_file:
@@ -27,11 +27,11 @@ services:
       - "80:80"
     volumes:
       - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
-      - static_value:/var/html/static/
-      - media_value:/var/html/media/
+      - api_yamdb_value:/var/html/static/
+      - api_yamdb_media:/var/html/media/
     depends_on:
       - web
 
 volumes:
-  static_value:
-  media_value:
+  api_yamdb_value:
+  api_yamdb_media:
